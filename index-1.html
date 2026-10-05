@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"><script src="https://telegram.org/js/telegram-web-app.js"></script><title>NEXAR ESPORTS</title>
+<style>
+:root{--bg:#09090B;--bg2:#15151A;--card:#17171c;--acc:#B51222;--tx:#fff;--mut:#9A9AA7;--ok:#2FB863;--warn:#E3B93C;--err:#E5484D;--vip:#D4A93A;--ln:#ffffff12;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}html,body{height:100%}
+body{background:radial-gradient(80% 32% at 90% -4%,#b512222e,transparent 70%),#09090B;color:var(--tx);font:500 15px/1.45 "Manrope","Segoe UI",system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden}
+button{font-family:inherit}
+header{padding:14px 18px 6px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:11px}
+.lm{width:40px;height:40px;border-radius:13px;background:linear-gradient(145deg,#d3182b,#8c0d1a);display:grid;place-items:center;font-weight:800;font-size:20px;box-shadow:0 6px 18px #b5122255}
+.lt b{display:block;font-weight:800;font-size:17px;letter-spacing:.16em;line-height:1.1}.lt span{font-size:12px;color:var(--mut)}
+.hb{display:flex;gap:8px}.ib2{position:relative;width:40px;height:40px;border-radius:50%;background:#ffffff0a;border:1px solid var(--ln);color:#fff;display:grid;place-items:center}
+.ib2 svg{width:19px;height:19px}.dot{position:absolute;top:8px;right:9px;width:9px;height:9px;border-radius:50%;background:#ff3347;border:2px solid #15151a;display:none}
+svg{display:block}
+main{flex:1;overflow-y:auto;padding:10px 18px 120px}
+section{display:none}section.on{display:block}
+nav{position:fixed;left:14px;right:14px;bottom:calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:4px;padding:6px;background:#15151add;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid #ffffff16;border-radius:26px;box-shadow:0 12px 34px #000b;z-index:5}
+nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 8px;border:0;border-radius:20px;background:none;color:var(--mut);font-weight:700;font-size:11px;letter-spacing:.06em;transition:background .2s,color .2s}
+nav button svg{width:22px;height:22px}
+nav button.on{color:#fff;background:linear-gradient(180deg,#c9162a,#a10f1e);box-shadow:0 6px 18px #b5122255}
+h2.t{font-size:26px;font-weight:800;letter-spacing:-.01em;margin:6px 0 4px}#tt,#mt{margin-bottom:14px}
+.sub{color:var(--mut);margin-bottom:18px}h3{font-size:16px;font-weight:800}h2{font-size:19px;font-weight:800}
+.tile{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;color:#fff;padding:16px;margin-bottom:12px;border-radius:22px;border:1px solid var(--ln);background:linear-gradient(135deg,#222229,#16161b);overflow:hidden}
+.tile:after{content:"";position:absolute;right:-34px;top:-34px;width:120px;height:120px;border-radius:50%;background:radial-gradient(#b5122238,transparent 70%)}
+.ti,.tx{position:relative;z-index:1}.ti{flex:none;width:54px;height:54px;border-radius:17px;display:grid;place-items:center;background:#b5122224;color:#ff4d5e;border:1px solid #b5122260}.ti svg{width:26px;height:26px}
+.tx b{display:block;font-size:17px;font-weight:800;letter-spacing:.02em}.tx em{font-style:normal;color:var(--mut);font-size:13px}
+.tile>svg{margin-left:auto;width:20px;height:20px;color:var(--mut);position:relative;z-index:1}
+.chips{display:flex;gap:8px;overflow-x:auto;margin-bottom:14px;padding-bottom:2px;scrollbar-width:none}
+.chip{flex:none;padding:8px 15px;border-radius:999px;background:#ffffff08;border:1px solid var(--ln);color:var(--mut);font-size:13px;font-weight:700}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:16px;margin-bottom:12px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mut{color:var(--mut);font-size:13px}
+.tag{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;background:#ffffff0d;color:var(--mut);letter-spacing:.04em}
+.tag.open{color:var(--ok);background:#2fb86318}.tag.full,.tag.cancelled{color:var(--err);background:#e5484d18}.tag.live{color:var(--warn);background:#e3b93c18}
+.btn{width:100%;height:50px;margin-top:12px;border:0;border-radius:15px;background:linear-gradient(180deg,#c9162a,#a10f1e);color:#fff;font-weight:800;font-size:14px;letter-spacing:.06em;box-shadow:0 8px 20px #b5122238}
+.btn.ghost{background:#ffffff0a;border:1px solid #ffffff16;box-shadow:none}.btn:disabled{opacity:.4;box-shadow:none}
+input{width:100%;height:50px;background:#ffffff08;border:1px solid #ffffff16;border-radius:15px;padding:0 14px;color:#fff;font:inherit;margin-top:8px}
+input:focus,button:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+.note{background:#e3b93c12;border:1px solid #e3b93c30;padding:11px 13px;border-radius:14px;font-size:13px;color:#d8c27a;margin-bottom:12px}
+.empty{text-align:center;padding:52px 20px;border-radius:22px;border:1px dashed #ffffff22;background:#ffffff04}
+.empty:before{content:"";display:block;width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:#b5122220;border:1px solid #b5122255}
+.empty b{display:block;font-size:19px;font-weight:800;letter-spacing:.05em}
+.back{display:inline-flex;align-items:center;color:var(--mut);background:#ffffff0a;border:1px solid var(--ln);border-radius:999px;padding:6px 14px 6px 10px;font-weight:700;font-size:13px;margin-bottom:12px}.back:before{content:"‹";font-size:20px;line-height:1;margin-right:6px}
+.bar{height:5px;background:#ffffff10;margin-top:10px;border-radius:5px}.bar i{display:block;height:100%;background:var(--acc);border-radius:5px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--mut);margin:10px 0}
+.legend span:before{content:"";display:inline-block;width:10px;height:10px;margin-right:6px;border-radius:50%;background:var(--c)}
+.br{overflow-x:auto;padding:6px 0 14px}.bracket{display:flex;min-width:520px}
+.col{display:flex;flex-direction:column;justify-content:space-around;gap:10px;flex:1}
+.pair{position:relative;display:flex;flex-direction:column;gap:6px;padding-right:22px}
+.pair:after{content:"";position:absolute;right:0;top:25%;bottom:25%;width:22px;border:1px solid #ffffff2a;border-left:0;border-radius:0 8px 8px 0}
+.slot{background:#ffffff07;border:1px solid color-mix(in srgb,var(--s) 50%,transparent);border-left:3px solid var(--s);border-radius:12px;padding:7px 9px;min-height:46px;font-size:12px;color:#fff;text-align:left}
+.slot b{display:block;color:var(--s);font-weight:800;font-size:11px;letter-spacing:.05em}
+.s-free{--s:var(--ok)}.s-taken{--s:var(--err)}.s-admin{--s:var(--warn)}.s-vip{--s:var(--vip);background:#d4a93a14}.slot.sel{background:#2fb86320}.mine{box-shadow:0 0 0 2px #fff}
+.sheet{position:fixed;inset:0;background:#000b;display:none;align-items:flex-end;z-index:9}.sheet.on{display:flex}
+.sheet>div{background:#17171c;width:100%;max-height:88%;overflow-y:auto;padding:22px 18px calc(18px + env(safe-area-inset-bottom,0px));border-radius:26px 26px 0 0;border-top:1px solid #ffffff18}
+.sheet>div:before{content:"";display:block;width:40px;height:4px;border-radius:4px;background:#ffffff2a;margin:-10px auto 14px}
+.toast{position:fixed;left:18px;right:18px;bottom:calc(96px + env(safe-area-inset-bottom,0px));background:#202028;border:1px solid #ffffff18;padding:12px 15px;border-radius:16px;font-size:14px;font-weight:600;display:none;z-index:10;box-shadow:0 10px 30px #000a}
+.hero{background:linear-gradient(135deg,#3b0c14,#17171c 75%)}
+.av{width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,#d3182b,#8c0d1a);display:grid;place-items:center;font-weight:800;font-size:26px;box-shadow:0 0 0 3px #09090B,0 0 0 5px #b5122280}
+.wal{position:relative;overflow:hidden;border-radius:24px;padding:20px;margin-bottom:12px;background:linear-gradient(135deg,#d3182b,#6e0a15);box-shadow:0 16px 36px #b5122238}
+.wal:after{content:"";position:absolute;right:-50px;top:-50px;width:190px;height:190px;border-radius:50%;background:#ffffff14}
+.wal>*{position:relative;z-index:1}.wal .l{font-size:13px;font-weight:700;opacity:.85}.wal .bal{font-size:36px;font-weight:800;margin:4px 0 6px}
+.wal .btn{background:#fff;color:#7d0c18;box-shadow:none;margin-top:10px}.wal .s{font-size:12px;opacity:.8;margin-top:10px}
+.bg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.bdg{background:#ffffff06;border:1px solid var(--ln);border-radius:18px;padding:14px 10px;text-align:center}
+.bdg .e{font-size:32px;filter:grayscale(1);opacity:.35}.bdg.on{border-color:#d4a93a80;background:linear-gradient(#d4a93a24,#ffffff06)}.bdg.on .e{filter:none;opacity:1}
+.bdg b{display:block;font-weight:800;font-size:13px;letter-spacing:.06em;margin-top:6px}.bdg span{font-size:12px;color:var(--mut)}
+.nt{padding:12px 0;border-bottom:1px solid var(--ln)}.nt b{font-weight:800}
+#intro{position:fixed;inset:0;z-index:99;background:#09090B;display:grid;place-items:center;animation:iout .25s ease .8s forwards}
+#intro .ib{text-align:center}#intro .xl{width:84px;height:84px;border-radius:26px;font-size:44px;margin:0 auto;animation:pop .7s cubic-bezier(.2,1.4,.4,1) both;box-shadow:0 0 50px #b5122288}
+#intro .big{font-size:30px;font-weight:800;letter-spacing:.3em;margin:18px 0 0 .3em;animation:fi .4s ease .25s both}
+#intro .bl{height:3px;background:var(--acc);margin:10px auto;border-radius:3px;box-shadow:0 0 14px var(--acc);animation:sw .6s ease .2s both}
+#intro .sub{color:var(--mut);font-size:12px;font-weight:700;letter-spacing:.5em;margin:0;animation:fi .4s ease .5s both}
+@keyframes pop{from{transform:scale(.5);opacity:0;filter:blur(8px)}}@keyframes sw{from{width:0}to{width:120px}}@keyframes fi{from{opacity:0;transform:translateY(6px)}}@keyframes iout{to{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:no-preference){.sheet>div{animation:up .2s ease-out}@keyframes up{from{transform:translateY(40px);opacity:.5}}}
+@media(prefers-reduced-motion:reduce){#intro{display:none}}
+
+.tc{background:var(--card);border:1px solid var(--ln);border-radius:22px;margin-bottom:14px;padding:0 16px 16px;overflow:hidden}
+.tb{position:relative;margin:0 -16px 14px;padding:18px 16px 16px;background:linear-gradient(135deg,#4a0f19,#1c1217 70%)}
+.tb .tag{position:absolute;right:14px;top:14px;background:#000a}.tb h2,.tb h3{font-size:20px;margin-top:10px;max-width:80%}
+.tci{width:44px;height:44px;border-radius:14px;background:#b5122240;border:1px solid #b5122280;display:grid;place-items:center;color:#ff5566}.tci svg{width:24px;height:24px}
+.tm{display:grid;grid-template-columns:1.2fr 1.2fr .8fr;gap:10px}.tm span{display:block;font-size:11px;color:var(--mut)}.tm b{font-size:13px;font-weight:800}
+.sh{margin:18px 0 10px;font-size:15px;letter-spacing:.1em}
+.sg{display:grid;gap:8px}.g5{grid-template-columns:repeat(5,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.sl{aspect-ratio:1;border-radius:14px;border:1.5px solid var(--c);background:color-mix(in srgb,var(--c) 14%,transparent);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:16px;padding:2px}
+.sl em{font-style:normal;font-size:9px;font-weight:600;opacity:.85;max-width:100%;overflow:hidden}
+.sl.fr{--c:var(--ok)}.sl.vp{--c:var(--vip)}.sl.tk{--c:var(--err)}.sl.sel{background:var(--c);color:#06140a;transform:scale(1.05)}.sl.mine{box-shadow:0 0 0 2px #fff}.sl:disabled{opacity:1}
+.bk{display:flex;gap:26px;min-width:max-content}.rc{display:flex;flex-direction:column;justify-content:space-around;gap:12px;min-width:150px}
+.rt{font-weight:800;font-size:12px;color:var(--mut);letter-spacing:.08em}
+.mt{position:relative;display:flex;flex-direction:column;gap:2px;background:#ffffff08;border:1px solid var(--ln);border-radius:14px;padding:4px}
+.mt:after{content:"";position:absolute;left:100%;top:50%;width:26px;border-top:1px solid #ffffff2a}.rc:last-child .mt:after{display:none}
+.pl{background:none;border:0;color:#fff;text-align:left;padding:9px 10px;border-radius:10px;font-weight:700;font-size:13px}.pl:disabled{opacity:1}
+.pl.w{background:#2fb86326;color:#7ee2a4}.pl.l{opacity:.4}.pl.e{color:var(--mut);font-weight:500}.pl.sw{outline:2px solid var(--warn)}
+.champ{margin-top:14px;padding:16px;border-radius:18px;text-align:center;background:linear-gradient(135deg,#d4a93a30,#17171c);border:1px solid #d4a93a80;font-weight:800;letter-spacing:.1em;color:var(--vip)}.champ b{display:block;font-size:22px;color:#fff;margin-top:4px;letter-spacing:0}
+.up{display:block;margin-top:8px;padding:14px;border:1.5px dashed #ffffff30;border-radius:15px;text-align:center;font-weight:700;color:#fff}
+.pv{display:none;width:100%;max-height:200px;object-fit:contain;border-radius:14px;margin-top:10px}
+.jr{border:1px solid var(--ln);border-radius:18px;overflow:hidden;background:var(--card)}
+.jh,.jrw{display:grid;grid-template-columns:34px 1fr 54px 54px;gap:6px;align-items:center;padding:12px 14px;width:100%;text-align:left;background:none;border:0;color:#fff;font-size:14px}
+.jh{background:#ffffff08;color:var(--mut);font-size:12px;font-weight:800;letter-spacing:.06em}.jrw{border-top:1px solid var(--ln);font-weight:700}.jrw:disabled{opacity:1}
+.jh span:nth-child(n+3),.jrw span:nth-child(n+3){text-align:center}.top0{background:linear-gradient(90deg,#d4a93a30,transparent)}.top1{background:linear-gradient(90deg,#9a9aa728,transparent)}.top2{background:linear-gradient(90deg,#b8733a26,transparent)}
+.ctr{text-align:center;margin-top:14px}.fine{font-size:11px;color:var(--mut);line-height:1.35;margin:12px 0 2px;text-align:center}
+.two{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.two .btn{margin-top:8px}.tm{grid-template-columns:1fr 1fr 1.3fr!important}
+#profil .card{padding:12px 14px;margin-bottom:10px;border-radius:16px}#profil h3{font-size:14px}#profil h2{font-size:17px}
+#profil .btn{height:40px;margin-top:8px;font-size:12px;border-radius:12px}#profil input{height:42px;margin-top:6px;border-radius:12px;font-size:14px}
+#profil .av{width:50px;height:50px;font-size:21px}#profil .hero{gap:12px!important}
+#profil .wal{padding:14px 16px;border-radius:18px;margin-bottom:10px}#profil .wal .bal{font-size:28px;margin:2px 0 4px}#profil .wal .btn{margin-top:6px}#profil .wal .s{margin-top:6px;font-size:11px}
+#profil .bg{gap:8px;margin-top:8px}#profil .bdg{padding:10px 8px;border-radius:14px}#profil .bdg .e{font-size:24px}#profil .bdg b{font-size:12px;margin-top:4px}#profil .bdg span{font-size:11px}
+#profil .nt{padding:8px 0}
+.two2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.two2 .btn{margin-top:8px;height:44px;font-size:11px;padding:0 6px}
+.arow{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;padding:11px 12px;margin-top:8px;border-radius:12px;background:#ffffff08;border:1px solid var(--ln);color:#fff;font-weight:700;font-size:13px;text-align:left}
+.arow i{font-style:normal;font-size:10px;font-weight:800;padding:2px 8px;border-radius:999px;flex:none}.arow i.ok{color:var(--ok);background:#2fb86318}.arow i.sv{color:var(--warn);background:#e3b93c18}
+.gr{display:flex;align-items:center;gap:12px;margin-bottom:12px}.gt{flex:1;line-height:1.25}.gt b{display:block;font-size:19px;font-weight:800;color:#ff7a88}
+.pb{border-radius:20px;padding:16px;margin-bottom:12px;background:linear-gradient(120deg,#7d0c18,#d3182b 60%,#ff5a6a);box-shadow:0 12px 28px #b5122238}.pb b{display:block;font-size:17px;margin:2px 0}.pk{font-size:11px;font-weight:800;letter-spacing:.14em;opacity:.85}
+.qa{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.qa button{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:12px 2px 9px;color:#fff;font-size:11px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:6px}.qa svg{width:22px;height:22px;color:#ff4d5e}
+.stl{padding:0!important;overflow:hidden}.st{display:flex;align-items:center;gap:12px;width:100%;padding:13px 14px;background:none;border:0;border-bottom:1px solid var(--ln);color:#fff;text-align:left}.st:last-child{border-bottom:0}
+.si{flex:none;width:40px;height:40px;border-radius:12px;background:#ffffff0a;display:grid;place-items:center;color:#ff4d5e}.si svg{width:20px;height:20px}.sx{flex:1}.sx b{display:block;font-size:14px;font-weight:800}.sx em{font-style:normal;font-size:12px;color:var(--mut)}.st>svg{width:18px;height:18px;color:var(--mut)}
+.sw{width:46px;height:27px;border-radius:999px;border:0;background:#ffffff22;position:relative}.sw:after{content:"";position:absolute;left:3px;top:3px;width:21px;height:21px;border-radius:50%;background:#fff;transition:left .15s}.sw.on{background:var(--acc)}.sw.on:after{left:22px}
+#mtiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}#mtiles .tile{flex-direction:column;text-align:center;padding:22px 10px;margin:0}#mtiles .tile>svg{display:none}#mtiles .tile:last-child{grid-column:1/-1}#mtiles .ti{width:60px;height:60px}
+.seg{display:flex;background:#ffffff10;border-radius:999px;padding:3px}.seg button{border:0;background:none;color:var(--mut);font-weight:800;font-size:12px;padding:6px 12px;border-radius:999px}.seg button.on{background:var(--acc);color:#fff}
+html[data-theme=light]{--bg:#F4F4F7;--bg2:#E9E9EE;--card:#FFFFFF;--tx:#111;--mut:#6B6B76;--ln:#0000001a;color-scheme:light}
+html[data-theme=light] body{background:radial-gradient(80% 32% at 90% -4%,#b5122220,transparent 70%),#F4F4F7;color:#111}
+html[data-theme=light] :is(.tile,.sl,.pl,.jrw,.jh,.ib2,.qa button,.st,.arow,.up,input,.btn.ghost,.sx b,.champ b){color:#111}
+html[data-theme=light] :is(.chip,.ib2,.btn.ghost,input,.bdg,.si,.arow,.back,.empty,.seg,.mt,.slot,.up,.qa button){background:#0000000a;border-color:#0000001a}
+html[data-theme=light] .qa button,html[data-theme=light] .card,html[data-theme=light] .tc{background:#fff;box-shadow:0 2px 10px #0000000d}
+html[data-theme=light] .tile{background:linear-gradient(135deg,#fff,#f0f0f4);border-color:#0000001a}
+html[data-theme=light] .chip.on,html[data-theme=light] .seg button.on{background:var(--acc);color:#fff}
+html[data-theme=light] nav{background:#ffffffee;border-color:#0000001a;box-shadow:0 10px 30px #00000026}html[data-theme=light] nav button.on{color:#fff}
+html[data-theme=light] .sheet>div{background:#fff;border-top-color:#0000001a}html[data-theme=light] .sheet>div:before{background:#0000002a}
+html[data-theme=light] .toast{background:#fff;color:#111;border-color:#0000001a}
+html[data-theme=light] .tb{color:#fff}html[data-theme=light] .tb .mut{color:#ffd0d5}html[data-theme=light] .tb .tag{color:#fff}
+html[data-theme=light] .wal,html[data-theme=light] .pb{color:#fff}html[data-theme=light] .wal .btn{color:#7d0c18}
+html[data-theme=light] .pl.w{color:#17803f}html[data-theme=light] .mine{box-shadow:0 0 0 2px #111}
+html[data-theme=light] .av{box-shadow:0 0 0 3px #F4F4F7,0 0 0 5px #b5122280}
+html[data-theme=light] .pair:after,html[data-theme=light] .mt:after{border-color:#0000002a}
+html[data-theme=light] .bar{background:#00000012}html[data-theme=light] .note{color:#8a6a00}
+html[data-theme=light] .sl.sel{color:#06140a}
+.lock{position:fixed;inset:0;z-index:98;background:var(--bg);display:grid;place-content:center;gap:10px;text-align:center;padding:30px;color:var(--tx)}.lock b{font-size:20px;font-weight:800}.lock span{color:var(--mut)}
+#err{position:fixed;left:8px;right:8px;top:8px;z-index:200;background:#7d0c18;color:#fff;padding:8px 12px;border-radius:10px;font-size:12px}
+</style></head><body>
+<div id="intro"><div class="ib"><div class="lm xl">N</div><div class="big">NEXAR</div><div class="bl"></div><div class="sub">ESPORTS</div></div></div>
+<header><div class="logo"><div class="lm">N</div><div class="lt"><b>NEXAR</b><span id="who">Mehmon</span></div></div>
+<div class="hb"><button class="ib2" id="bell" onclick="showNotes()" aria-label="Xabarlar"><span id="bi"></span><i class="dot" id="dot"></i></button><button class="ib2" id="snd" onclick="togSnd()" aria-label="Ovoz"></button></div></header>
+<main>
+<section id="turnir" class="on">
+ <div id="thub"><h2 class="t">Turnirlar</h2><p class="sub">Bo‘limni tanlang</p><div id="ttiles"></div><button class="btn ghost" onclick="showMine()">MENING TURNIRLARIM</button></div>
+ <div id="tlist" style="display:none"><button class="back" onclick="tHub()">Orqaga</button><h2 class="t" id="tt"></h2><div class="chips" id="sts"></div><div id="cards"></div></div>
+ <div id="tdet" style="display:none"></div>
+</section>
+<section id="market">
+ <div id="mhub"><h2 class="t">Marketplace</h2><p class="sub">Bo‘limni tanlang</p><div id="mtiles"></div></div>
+ <div id="mlistw" style="display:none"><button class="back" onclick="mHub()">Orqaga</button><h2 class="t" id="mt"></h2><div id="mlist"></div></div>
+</section>
+<section id="profil">
+ <div id="pmain">
+  <div class="gr"><div class="av" id="av">?</div><div class="gt"><span class="mut">Salom,</span><b id="pn">Mehmon</b><div class="mut" id="pid">Telegram ID: —</div></div><button class="ib2" onclick="support()" aria-label="Yordam"><span id="hd"></span></button></div>
+  <div id="promo"></div>
+  <div class="wal"><div class="row"><b>● NEXAR WALLET</b><span class="l" id="wid">•••• —</span></div><div class="row" style="align-items:flex-end;margin-top:14px"><div><div class="l">Joriy balans</div><div class="bal" id="bal">0 UZS</div></div><div style="text-align:right"><div class="l">Turnirlar</div><b id="wc">0</b></div></div></div>
+  <div class="qa"><button onclick="deposit()"><span data-i="card"></span>To‘ldirish</button><button onclick="kuponSheet()"><span data-i="ticket"></span>Kupon</button><button onclick="tarix()"><span data-i="clock"></span>Tarix</button><button onclick="sozl()"><span data-i="gear"></span>Sozlamalar</button></div>
+  <div class="card"><h3>PUBG akkaunt</h3><div class="mut" id="pubg" style="margin-top:4px">Kiritilmagan</div><button class="btn ghost" onclick="editPubg()">PROFILNI TAHRIRLASH</button></div>
+  <div class="card"><h3>Nishon</h3><div class="mut">Nishonlarni admin beradi.</div><div class="bg" id="bgs"></div></div>
+  <div id="adm"></div>
+ </div>
+ <div id="psub" style="display:none"></div>
+</section>
+</main>
+<nav><button class="on" data-t="turnir"><span class="ni"></span>TURNIR</button><button data-t="market"><span class="ni"></span>MARKETPLACE</button><button data-t="profil"><span class="ni"></span>PROFIL</button></nav>
+<div class="sheet" id="sh"><div id="shc"></div></div><div class="toast" id="ts"></div>
+<script>
+const $=s=>document.querySelector(s);
+const sv=p=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+const IC={TDM:'<circle cx="12" cy="12" r="8"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>',BR:'<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',WOW:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',UC:'<circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h4a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3h4"/>',AKK:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',RENT:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/>',store:'<path d="M3 9l1-5h16l1 5M3 9v11h18V9M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M9 20v-6h6v6"/>',bell:'<path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 0 0 4 0"/>',on:'<path d="M11 5 6 9H3v6h3l5 4zM15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12"/>',off:'<path d="M11 5 6 9H3v6h3l5 4zM22 9l-6 6M16 9l6 6"/>',chev:'<path d="m9 6 6 6-6 6"/>'};
+Object.assign(IC,{card:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18"/>',ticket:'<path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/>',bag:'<path d="M5 8h14l1 12H4z"/><path d="M9 8a3 3 0 0 1 6 0"/>',clock:'<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/>',gear:'<path d="M4 6h9M19 6h1M4 12h3M13 12h7M4 18h11M21 18h-1"/><circle cx="16" cy="6" r="2.4"/><circle cx="10" cy="12" r="2.4"/><circle cx="18" cy="18" r="2.4"/>',moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/>',head:'<path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H5a1 1 0 0 1-1-1zM20 14h-3v5h2a1 1 0 0 0 1-1z"/>',doc:'<path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/>',shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',mega:'<path d="M3 10v4h3l8 4V6L6 10zM18 9a4 4 0 0 1 0 6"/>',out:'<path d="M9 4H5v16h4M16 8l4 4-4 4M20 12H9"/>'});
+document.querySelectorAll('[data-i]').forEach(e=>e.outerHTML=sv(IC[e.dataset.i]));$('#hd').innerHTML=sv(IC.head);
+document.querySelectorAll('.ni').forEach((e,i)=>e.outerHTML=sv([IC.BR,IC.store,IC.AKK][i]));$('#bi').innerHTML=sv(IC.bell);
+const ST={reg:{}, pubg:null, amt:20000, cat:'Barchasi', st:'Barchasi', mcat:'UC SERVICE', reqs:{}};
+try{Object.assign(ST,JSON.parse(localStorage.getItem('nexar')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('nexar',JSON.stringify(ST))}catch(e){}};
+function toast(m,k){k=k==='-'?'':(k||(/yetarli emas|kiriting|noto‘g‘ri|topilmadi|allaqachon|band|Kuting|aloqa yo‘q|Xatolik|kerak|yopiq/i.test(m)?'err':''));if(k)sfx(k);const t=$('#ts');t.textContent=m;t.style.display='block';clearTimeout(t._h);t._h=setTimeout(()=>t.style.display='none',3200)}
+const tg=window.Telegram&&Telegram.WebApp;let u=null;
+if(tg){tg.ready();tg.expand();u=tg.initDataUnsafe&&tg.initDataUnsafe.user}
+function applyTheme(){const l=ST.theme==='light';document.documentElement.dataset.theme=l?'light':'dark';try{tg&&tg.setHeaderColor&&tg.setHeaderColor(l?'#F4F4F7':'#09090B')}catch(e){}}applyTheme();
+function setTheme(t){ST.theme=t;save();applyTheme();sozl()}
+if(u){const n=u.username?'@'+u.username:u.first_name;$('#who').textContent=n;$('#pn').textContent=n;$('#pid').textContent='Telegram ID: '+u.id;$('#av').textContent=(u.first_name||'?')[0]}
+// nav
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{if(b.classList.contains('on')){if(b.dataset.t==='turnir')tHub();if(b.dataset.t==='market')mHub();if(b.dataset.t==='profil')subx();return}document.querySelectorAll('nav button,section').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.t).classList.add('on')});
+// tournaments
+const EMPTY=`<div class="empty"><b>HECH NIMA YO'Q</b><div class="mut" style="margin-top:6px">Admin hali hech narsa joylamagan.</div></div>`;
+const CATS=[['TDM TURNIR','TDM'],['KATTA TURNIR','BR'],['WOW OYINLARI','WOW']];
+const STS=['Qabul ochiq','Jarayonda','Tugagan'];if(!STS.includes(ST.st))ST.st='';
+// Admin joylagan turnirlar serverdan keladi. Hozircha server yo'q — ro'yxat bo'sh.
+const T=[
+{id:1,n:'TEST TURNIR · TDM',c:'TDM TURNIR',d:'Bugun',t:'20:00',dl:'Bugun 19:30',p:'Sinov (sovrin yo‘q)',fee:0,st:'Qabul ochiq',cap:10,vcap:4,vipFee:10000,reg:{S2:'TestPlayer',S5:'Sinov2',V1:'VIPTest'},rules:'Sinov turniri: slot tanlash va setkani tekshirish uchun.'},
+{id:2,n:'TEST KATTA TURNIR',c:'KATTA TURNIR',d:'Ertaga',t:'21:00',dl:'—',p:'Sinov (sovrin yo‘q)',fee:0,st:'Jarayonda',players:['Alpha','Bravo','Charlie','Delta','Echo','Foxtrot','Golf','Hotel'],rules:'Faqat setka ko‘rsatiladi. Yakunda admin g‘olibni belgilaydi.'},
+{id:3,n:'TDM Haftalik Kubok (tugagan)',c:'TDM TURNIR',d:'2-oktyabr',t:'20:00',dl:'—',p:'500 000 UZS',fee:0,st:'Tugagan',cap:10,vcap:4,vipFee:10000,reg:{S1:'Sardor',S2:'Jasur',S3:'Dilshod',S4:'Aziz',S5:'Bekzod',S6:'Otabek',S7:'Javohir',S8:'Sherzod',S9:'Umid',S10:'Rustam',V1:'Farhod',V2:'Kamol',V3:'Timur',V4:'Ulugbek'},auto:1,rules:'Tugagan test turnir: setka natijalari ko‘rsatilgan.'},
+{id:4,n:'Erangel Open (tugagan)',c:'KATTA TURNIR',d:'28-sentyabr',t:'21:00',dl:'—',p:'1 000 000 UZS',fee:10000,st:'Tugagan',players:['Phoenix','Viper','Raven','Falcon','Wolf','Titan','Cobra','Shadow'],jdata:{Phoenix:{k:14,p:62},Viper:{k:11,p:51},Raven:{k:9,p:44},Falcon:{k:8,p:38},Wolf:{k:6,p:30},Titan:{k:5,p:24},Cobra:{k:3,p:15},Shadow:{k:2,p:9}},champ:'Phoenix',rules:'Tugagan test turnir: yakuniy jurnal.'},
+{id:5,n:'WOW Arena (tugagan)',c:'WOW OYINLARI',d:'25-sentyabr',t:'19:00',dl:'—',p:'300 000 UZS',fee:0,st:'Tugagan',players:['Rex','Blaze','Storm','Nova','Zeta','Orion'],jdata:{Rex:{k:12,p:55},Blaze:{k:10,p:47},Storm:{k:8,p:39},Nova:{k:6,p:31},Zeta:{k:4,p:22},Orion:{k:2,p:12}},champ:'Rex',rules:'Tugagan test turnir: yakuniy jurnal.'}];
+if(ST.tlv===2&&ST.tl){T.length=0;T.push(...ST.tl)}
+const saveT=()=>{ST.tl=JSON.parse(JSON.stringify(T));ST.tlv=2;save()};
+const cls=s=>({'Qabul ochiq':'open','Jarayonda':'live'}[s]||'');
+function tiles(el,arr,cnt,fn){$(el).innerHTML=arr.map((c,i)=>`<button class="tile" onclick="${fn}(${i})"><span class="ti">${sv(IC[c[1]])}</span><span class="tx"><b>${c[0]}</b><em>${cnt(c[0])}</em></span>${sv(IC.chev)}</button>`).join('')}
+function chips(el,arr,key,fn){$(el).innerHTML=arr.map(a=>`<button class="chip ${ST[key]===a?'on':''}" data-v="${a}">${a}</button>`).join('');$(el).querySelectorAll('button').forEach(b=>b.onclick=()=>{ST[key]=b.dataset.v;save();fn()})}
+let tcat=null,cur=null,pick=null;
+function tHub(){tcat=null;$('#thub').style.display='block';$('#tlist').style.display='none';$('#tdet').style.display='none';tiles('#ttiles',CATS,n=>{const k=T.filter(t=>t.c===n).length;return k?k+' ta turnir':"Hech nima yo'q"},'tOpen')}
+function tOpen(i){tcat=CATS[i][0];$('#thub').style.display='none';$('#tdet').style.display='none';$('#tlist').style.display='block';$('#tt').textContent=tcat;list()}
+ST.br=ST.br||{};for(const k in ST.reg)if(typeof ST.reg[k]==='number')ST.reg[k]='S'+ST.reg[k];
+const esc=x=>String(x).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+const lab=k=>k[0]==='V'?'VIP '+k.slice(1):k.slice(1);
+const isAdm=()=>(u&&u.id===CONFIG.ADMIN_ID)||(!SYNC&&location.hash==='#admin');
+const isTDM=t=>t.c==='TDM TURNIR';
+const plist=t=>t.players?t.players.slice():[...Object.values(t.reg||{}),...(!SYNC&&ST.reg[t.id]?[(ST.pubg||{}).nick||'Siz']:[])];
+const tot=t=>t.players?t.players.length:t.cap+t.vcap;
+const feeT=t=>t.fee?fmt(t.fee):'BEPUL';
+function place(a){let P=2;while(P<a.length)P<<=1;const r=Array(P).fill(null);let i=0;for(let m=0;m<P/2&&i<a.length;m++)r[2*m]=a[i++];for(let m=0;m<P/2&&i<a.length;m++)r[2*m+1]=a[i++];return r}
+function mkBr(t,rnd){let a=plist(t);if(rnd)a.sort(()=>Math.random()-.5);const o=ST.br[t.id];ST.br[t.id]={seed:place(a),win:{},champ:o&&o.champ};save();if(SYNC)pushT(t,{br:ST.br[t.id]})}
+function getR(t){const B=ST.br[t.id];let cur=B.seed.slice(),rounds=[],w={};for(let r=0;cur.length>1;r++){const ms=[],nx=[];for(let m=0;m<cur.length/2;m++){const a=cur[2*m],b=cur[2*m+1];ms.push([a,b]);let x=a&&!b?a:!a&&b?b:B.win[r+'-'+m];if(x!==a&&x!==b)x=null;w[r+'-'+m]=x;nx.push(x)}rounds.push(ms);cur=nx}return{rounds,w,champ:cur[0]}}
+const RN=(r,n)=>r===n-1?'Final':r===n-2?'Yarim final':r===0?'Birinchi bosqich':(r+1)+'-bosqich';
+let swp=null;
+function drawBr(t){const B=ST.br[t.id];if(!B)return '';const R=getR(t),ch=isTDM(t)?R.champ:B.champ,adm=isAdm();
+ const cols=R.rounds.map((ms,r)=>`<div class="rc"><div class="rt">${RN(r,R.rounds.length)}</div>${ms.map((m,i)=>`<div class="mt">${[0,1].map(s=>{const n=m[s],w=R.w[r+'-'+i];const c=n?(w===n?'w':w?'l':''):'e';return `<button class="pl ${c} ${swp&&swp.i==i&&swp.s==s&&r==0?'sw':''}" ${adm&&n?`onclick="pAct(${r},${i},${s})"`:'disabled'}>${n?esc(n):(r?'Kutilmoqda':'BYE')}</button>`}).join('')}</div>`).join('')}</div>`).join('');
+ return `<div class="br"><div class="bk">${cols}</div></div>${ch?`<div class="champ">🏆 G‘OLIB<b>${esc(ch)}</b></div>`:''}`}
+function pAct(r,i,s){const t=cur,B=ST.br[t.id],R=getR(t),nm=R.rounds[r][i][s];
+ if(swp&&r===0){const x=2*swp.i+swp.s,y=2*i+s;[B.seed[x],B.seed[y]]=[B.seed[y],B.seed[x]];B.win={};swp=null;save();if(SYNC)pushT(t,{br:B});det();return toast('O‘yinchilar almashtirildi.')}
+ sheet(`<h3>${esc(nm)}</h3><div class="mut">${RN(r,R.rounds.length)}</div>`+(isTDM(t)?`<button class="btn" onclick="adv(${r},${i},${s})">KEYINGI BOSQICHGA O‘TKAZISH</button>`+(r===0?`<button class="btn ghost" onclick="swp={r:0,i:${i},s:${s}};closeS();det();toast('Almashtirish uchun ikkinchi o‘yinchini tanlang.')">JOYINI ALMASHTIRISH</button>`:''):`<button class="btn" onclick="ST.br[cur.id].champ=${JSON.stringify(nm).replace(/"/g,'&quot;')};save();closeS();det()">G‘OLIB DEB BELGILASH</button>`)+`<button class="btn ghost" onclick="dm(${r},${i},${s})">LICHKAGA XABAR YOZISH</button><button class="btn ghost" onclick="closeS()">YOPISH</button>`)}
+function adv(r,i,s){const R=getR(cur);ST.br[cur.id].win[r+'-'+i]=R.rounds[r][i][s];save();closeS();det();if(SYNC)pushT(cur,{br:ST.br[cur.id]})}
+function sendDm(r,i,s){const nm=getR(cur).rounds[r][i][s],k=Object.keys(cur.reg||{}).find(x=>cur.reg[x]===nm),x=$('#dmt').value.trim();if(!SYNC)return toast('Server ulanmagan.');if(!k)return toast('Bu o‘yinchi slot orqali yozilmagan.');if(x.length<2)return toast('Xabar matnini kiriting.');act('dm',{tid:cur.id,slot:k,text:x},'Xabar yuborildi.').then(ok=>ok&&closeS())}
+function dm(r,i,s){const nm=getR(cur).rounds[r][i][s];sheet(`<h3>${esc(nm)}ga xabar</h3><input id="dmt" placeholder="Xabar matni"><button class="btn" onclick="sendDm(${r},${i},${s})">YUBORISH</button><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button>`)}
+
+function tHub(){tcat=null;$('#thub').style.display='block';$('#tlist').style.display='none';$('#tdet').style.display='none';tiles('#ttiles',CATS,n=>{const k=T.filter(t=>t.c===n).length;return k?k+' ta turnir':"Hech nima yo'q"},'tOpen')}
+function tOpen(i){tcat=CATS[i][0];$('#thub').style.display='none';$('#tdet').style.display='none';$('#tlist').style.display='block';$('#tt').textContent=tcat;list()}
+const sts=()=>$('#sts');
+function list(){sts().innerHTML=STS.map(a=>`<button class="chip ${ST.st===a?'on':''}" data-v="${a}">${a}</button>`).join('');sts().querySelectorAll('button').forEach(b=>b.onclick=()=>{ST.st=ST.st===b.dataset.v?'':b.dataset.v;save();list()});
+ const r=T.filter(t=>t.c===tcat&&(!ST.st||t.st===ST.st));
+ $('#cards').innerHTML=r.length?r.map(t=>{const n=plist(t).length,all=tot(t);return `<div class="tc"><div class="tb"><span class="tag ${cls(t.st)}">${t.st}</span><div class="tci">${sv(IC[tcat==='TDM TURNIR'?'TDM':tcat==='KATTA TURNIR'?'BR':'WOW'])}</div><h3>${esc(t.n)}</h3><div class="mut">${t.c}</div></div>
+ ${stats(t)}<div class="bar"><i style="width:${Math.min(100,n/all*100)}%"></i></div><div class="mut" style="margin-top:8px">${n}/${all} ichidagi o‘yinchilar</div>
+ <button class="btn" onclick="openT(${t.id})">${t.st==='Qabul ochiq'?'QATNASHISH':'KO‘RISH'}</button></div>`}).join(''):EMPTY}
+const stats=t=>`<div class="tm"><div><span>SANA</span><b>${t.d}</b></div><div><span>VAQT</span><b>${t.t}</b></div><div><span>YUTUQ</span><b>${t.p}</b></div></div>`;
+function openT(id){cur=T.find(t=>t.id===id);pick=null;swp=null;$('#tlist').style.display='none';$('#tdet').style.display='block';det()}
+function back(){$('#tdet').style.display='none';$('#tlist').style.display='block';list()}
+function det(){const t=cur,my=ST.reg[t.id],open=t.st==='Qabul ochiq',nick=(ST.pubg||{}).nick;
+ const cell=(k)=>{const nm=my===k?nick||'Siz':t.reg[k],tk=!!nm,v=k[0]==='V';return `<button class="sl ${tk?'tk':v?'vp':'fr'} ${pick===k?'sel':''} ${my===k?'mine':''}" ${adm&&tk&&my!==k?`onclick="aSlot('${k}')"`:`${tk||!open||my?'disabled':''} onclick="pick='${k}';det()"`}><span>${k.slice(1)}</span>${tk?`<em>${esc(nm).slice(0,7)}</em>`:''}</button>`};
+ const row=(p,n)=>Array.from({length:n},(_,i)=>cell(p+(i+1))).join('');
+ const full=plist(t).length>=tot(t),adm=isAdm();
+  if(isTDM(t)&&t.auto&&!B){ST.br[t.id]={seed:place(plist(t)),win:{}};for(let r=0;r<10;r++){const R=getR(t);if(!R.rounds[r])break;R.rounds[r].forEach((m,i)=>{if(m[0]&&m[1])ST.br[t.id].win[r+'-'+i]=m[0]})}save()}
+ if(isTDM(t)&&full&&!ST.br[t.id]&&(!SYNC||adm))mkBr(t,true);
+ const B=ST.br[t.id];
+ const n0=plist(t).length,hd=`<button class="back" onclick="back()">Orqaga</button><div class="tc" style="cursor:default"><div class="tb"><span class="tag ${cls(t.st)}">${t.st}</span><div class="tci">${sv(IC[isTDM(t)?'TDM':t.c==='KATTA TURNIR'?'BR':'WOW'])}</div><h2>${esc(t.n)}</h2><div class="mut">${t.c}</div></div>
+ ${stats(t)}<div class="bar"><i style="width:${Math.min(100,n0/tot(t)*100)}%"></i></div><div class="mut" style="margin-top:8px">${n0}/${tot(t)} ichidagi o‘yinchilar</div></div>`;
+ const info=`<h3 class="sh">TURNIR MA’LUMOTLARI</h3><div class="card"><div class="row"><span class="mut">Format</span><b>${isTDM(t)?'Setka':'Jurnal'}</b></div><div class="row" style="margin-top:8px"><span class="mut">Ro‘yxat muddati</span><b>${t.dl||'—'}</b></div>${isTDM(t)?`<div class="row" style="margin-top:8px"><span class="mut">VIP slot narxi</span><b>${fmt(t.vipFee||0)}</b></div>`:''}<div class="mut" style="margin-top:10px">${esc(t.rules||'')}</div></div>`;
+ let body='';
+ if(isTDM(t)){body=`<h3 class="sh">SLOTLAR</h3><div class="sg g5">${row('S',t.cap)}</div><div class="legend"><span style="--c:var(--ok)">Bo‘sh</span><span style="--c:var(--err)">Band</span></div>
+ <h3 class="sh">VIP SLOTLAR</h3><div class="mut" style="margin:-4px 0 10px">Pullik: ${fmt(t.vipFee||0)}. To‘lov Hisobim balansidan olinadi.</div><div class="sg g4">${row('V',t.vcap)}</div><div class="legend"><span style="--c:var(--vip)">Bo‘sh</span><span style="--c:var(--err)">Band</span></div>
+ ${my?`<button class="btn ghost" onclick="cancelReg()">RO‘YXATNI BEKOR QILISH (${lab(my)})</button>`:!open?'<div class="mut ctr">Ro‘yxat yopiq</div>':pick?actBar(t):'<div class="mut ctr">Joyni tanlang</div>'}`;
+  if(B)body+=`<h3 class="sh">SETKA</h3>`+drawBr(t);
+  if(adm)body+=admBox(t,B)}
+ else{body=`<h3 class="sh">JURNAL</h3>`+jurnal(t)+(adm?admBox(t):'')}
+ $('#tdet').innerHTML=hd+info+body+`<div class="card"><h3>Xona ma'lumoti</h3><div class="mut">Admin e'lon qilguncha yashirin.</div></div>`}
+function sheet(h){$('#shc').innerHTML=h;$('#sh').classList.add('on')}
+function closeS(){$('#sh').classList.remove('on')}
+$('#sh').onclick=e=>{if(e.target.id==='sh')closeS()};
+const costOf=(t,k)=>k[0]==='V'?(t.vipFee||0):0;
+function goDep(){closeS();document.querySelector('nav button[data-t=profil]').click();deposit()}
+function actBar(t){const c=costOf(t,pick);return `<div class="act">${c?'<div class="fine">Eslatma: «To‘lov qilish» bosilganda hisobingizdan pul darrov yechiladi va qaytarilmaydi.</div>':''}<div class="two"><button class="btn" onclick="join()">${c?'TO‘LOV QILISH · '+fmt(c):'QO‘SHILISH'}</button><button class="btn ghost" onclick="pick=null;det()">RAD ETISH</button></div></div>`}
+function join(){const p=ST.pubg;if(p&&p.nick&&p.id)return commit(p.nick,p.id);regForm()}
+function regForm(){sheet(`<h3>PUBG ma'lumotlari</h3><div class="mut">${lab(pick)} slot uchun NIKNEYM va ID kiriting.</div><input id="fn" placeholder="PUBG NIKNEYM"><input id="fi" inputmode="numeric" placeholder="PUBG ID"><button class="btn" id="ok" onclick="doReg()">DAVOM ETISH</button><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button>`)}
+function doReg(){const n=$('#fn').value.trim(),i=$('#fi').value.trim();if(n.length<2)return toast('NIKNEYM kiriting (kamida 2 belgi).');if(!/^\d{6,12}$/.test(i))return toast('PUBG ID faqat raqam, 6–12 xonali bo‘lishi kerak.');closeS();ST.pubg={nick:n,id:i};save();showPubg();commit(n,i)}
+function commit(n,i){const cost=costOf(cur,pick);
+ if(cur.reg[pick]||ST.reg[cur.id])return toast('Bu slot band yoki siz allaqachon yozilgansiz.');
+ if(cost>W.bal())return sheet(`<h3>Balans yetarli emas</h3><div class="mut">Kerak: ${fmt(cost)} · Hisobingizda: ${fmt(W.bal())}</div><button class="btn" onclick="goDep()">BALANSNI TO‘LDIRISH</button><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button>`);
+ if(SYNC){const k=pick;return act('register',{tid:cur.id,slot:k,nick:n,id:i},'Muvaffaqiyatli! '+lab(k)+' slot').then(ok=>{if(ok)pick=null})}
+ if(cost){const ref='reg:'+cur.id+':'+Date.now();if(!W.pay(cost,'VIP slot: '+cur.n,ref))return toast('Balans yetarli emas.');ST.paid[cur.id]={a:cost,ref}}
+ ST.reg[cur.id]=pick;save();addNote('Ro‘yxatdan o‘tdingiz',lab(pick)+' slot · '+cur.n+(cost?' · −'+fmt(cost):''));toast('Muvaffaqiyatli! '+lab(pick)+' slot');det()}
+function cancelReg(){const p=ST.paid[cur.id];if(!confirm('Ro‘yxatni bekor qilasizmi?'+(p?' To‘lov qaytarilmaydi.':'')))return;
+ if(SYNC){pick=null;return act('cancel',{tid:cur.id},'Ro‘yxat bekor qilindi.')}delete ST.paid[cur.id];delete ST.reg[cur.id];delete ST.br[cur.id];save();pick=null;det();addNote('Ro‘yxat bekor qilindi',cur.n)}
+// jurnal (TDM dan boshqa turnirlar)
+const jd=(t,n)=>(ST.jr[t.id]||{})[n]||(t.jdata||{})[n]||{k:0,p:0};
+function jurnal(t){const adm=isAdm(),rows=t.players.map((n,i)=>({n,i,...jd(t,n)})).sort((a,b)=>b.p-a.p||b.k-a.k),ch=ST.jc[t.id]||t.champ;
+ return `<div class="jr"><div class="jh"><span>#</span><span>O‘yinchi</span><span>Kill</span><span>Ball</span></div>${rows.map((r,x)=>`<button class="jrw ${x<3&&r.p?'top'+x:''}" ${adm?`onclick="jEdit(${r.i})"`:'disabled'}><span>${x+1}</span><span>${esc(r.n)}</span><span>${r.k}</span><span>${r.p}</span></button>`).join('')}</div>
+ ${ch?`<div class="champ">🏆 G‘OLIB<b>${esc(ch)}</b></div>`:''}${adm?`<div class="card" style="margin-top:12px"><h3>ADMIN</h3><div class="mut">Qatorni bosib kill va ballni kiriting.</div><button class="btn" onclick="jWin()">G‘OLIBNI E’LON QILISH</button></div>`:''}`}
+function jEdit(i){const n=cur.players[i],d=jd(cur,n);sheet(`<h3>${esc(n)}</h3><input id="jk" inputmode="numeric" placeholder="Kill" value="${d.k}"><input id="jp" inputmode="numeric" placeholder="Ball" value="${d.p}"><button class="btn" onclick="jSave(${i})">SAQLASH</button><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button>`)}
+function jSave(i){const k=parseInt($('#jk').value,10),p=parseInt($('#jp').value,10);if(!(k>=0)||!(p>=0))return toast('Kill va ballni to‘g‘ri kiriting.');(ST.jr[cur.id]=ST.jr[cur.id]||{})[cur.players[i]]={k,p};save();closeS();det();if(SYNC)pushT(cur,{jr:ST.jr[cur.id]})}
+function jWin(){const r=cur.players.map(n=>({n,...jd(cur,n)})).sort((a,b)=>b.p-a.p||b.k-a.k)[0];if(!r||!r.p)return toast('Avval ballarni kiriting.');ST.jc[cur.id]=r.n;save();det();if(SYNC)pushT(cur,{jc:r.n})}
+function showMine(){const ids=Object.keys(ST.reg).filter(id=>T.find(x=>x.id==id));sheet(`<h3>MENING TURNIRLARIM</h3>${ids.length?ids.map(id=>{const t=T.find(x=>x.id==id);return `<div class="card"><b>${esc(t.n)}</b><div class="mut">${lab(ST.reg[id])} slot · ${t.d}, ${t.t}</div></div>`}).join(''):EMPTY}<button class="btn ghost" onclick="closeS()">YOPISH</button>`)}
+// marketplace
+const MC=[['UC SERVICE','UC'],['AKKAUNT SAVDO','AKK'],['AKKAUNT ARENDA','RENT']];
+const M={'UC SERVICE':[],'AKKAUNT SAVDO':[],'AKKAUNT ARENDA':[]}; // {n,p,i} — admin joylaydi
+let mc=null;
+function mHub(){mc=null;$('#mhub').style.display='block';$('#mlistw').style.display='none';tiles('#mtiles',MC,n=>M[n].length?M[n].length+' ta mahsulot':"Hech nima yo'q",'mOpen')}
+function mOpen(i){mc=MC[i][0];$('#mhub').style.display='none';$('#mlistw').style.display='block';$('#mt').textContent=mc;mk()}
+function mk(){$('#mlist').innerHTML=M[mc].length?(mc==='UC SERVICE'?'<div class="note">UC yetkazish qo‘lda bajariladi: so‘rov admin tomonidan ko‘rib chiqiladi.</div>':'')+M[mc].map((x,k)=>{const key=mc+k,r=ST.reqs[key];return `<div class="card"><div class="row"><b>${x.n}</b><span class="tag ${x.i==='Mavjud'?'open':'full'}">${x.i}</span></div><div class="mut">${x.p}</div>
+ ${r?`<div class="mut" style="margin-top:8px">Holat: <b style="color:var(--warn)">PENDING</b></div>`:`<button class="btn" ${x.i==='Mavjud'?'':'disabled'} onclick="req('${key}')">${mc==='AKKAUNT ARENDA'?'SO‘ROV YUBORISH':'BUYURTMA BERISH'}</button>`}</div>`}).join(''):EMPTY}
+function req(k){if(!ST.pubg)return toast('Avval Profilda PUBG ma’lumotlarini kiriting.');ST.reqs[k]=1;save();mk();addNote('So‘rov yuborildi','Admin tasdiqlashini kuting.')}
+// profile
+function showPubg(){$('#pubg').textContent=ST.pubg?`NIKNEYM: ${ST.pubg.nick} · PUBG ID: ${ST.pubg.id}`:'Kiritilmagan'}
+function editPubg(){const p=ST.pubg||{};sheet(`<h3>PUBG ma'lumotlari</h3><input id="fn" placeholder="PUBG NIKNEYM" value="${p.nick||''}"><input id="fi" inputmode="numeric" placeholder="PUBG ID" value="${p.id||''}"><button class="btn" onclick="svP()">Saqlash</button>`)}
+function svP(){const n=$('#fn').value.trim(),i=$('#fi').value.trim();if(n.length<2||!/^\d{6,12}$/.test(i))return toast('NIKNEYM va 6–12 xonali PUBG ID to‘g‘ri kiriting.');if(SYNC){closeS();return act('pubg',{nick:n,id:i},'Saqlandi.')}ST.pubg={nick:n,id:i};save();showPubg();closeS();toast('Saqlandi.')}
+const now=()=>new Date().toLocaleString('uz');
+ST.tx=ST.tx||[];ST.paid=ST.paid||{};ST.jr=ST.jr||{};ST.jc=ST.jc||{};
+if(ST.bal===undefined){ST.bal=ST.bonus?10000:0;if(ST.bonus)ST.tx.push({k:'in',a:10000,n:'NEXAR kuponi (TEST)',at:now(),ref:'coupon:NEXAR'})}
+// Hamyon: HAQIQIY tizimda bu mantiq serverda bo'ladi (atomik, manfiy balanssiz, takrorlanmas ref bilan)
+const W={bal:()=>ST.bal||0,has:r=>!!r&&ST.tx.some(x=>x.ref===r),
+ add(a,n,ref,k='in'){if(!(a>0)||W.has(ref))return false;ST.bal=W.bal()+a;ST.tx.unshift({k,a,n,at:now(),ref});save();balUI();return true},
+ pay(a,n,ref){if(!(a>0))return true;if(W.has(ref)||W.bal()<a)return false;ST.bal=W.bal()-a;ST.tx.unshift({k:'out',a,n,at:now(),ref});save();balUI();return true}};
+function coupon(){const c=$('#cp').value.trim().toUpperCase();if(!c)return toast('Kupon kodini kiriting.');if(SYNC){closeS();return act('coupon',{code:c})}
+ if(c!=='NEXAR')return toast('Kupon topilmadi yoki serverda tekshirib bo‘lmaydi.');
+ if(!W.add(10000,'NEXAR kuponi (TEST)','coupon:NEXAR'))return toast('NEXAR kuponi bu qurilmada allaqachon faollashtirilgan.');
+ ST.bonus=1;save();closeS();addNote('NEXAR kuponi faollashdi','TEST rejim: +'+fmt(10000)+' hisobingizga qo‘shildi.')}
+function balUI(){$('#bal').textContent=fmt(W.bal());$('#wc').textContent=Object.keys(ST.reg).length;$('#wid').textContent='•••• '+(u?String(u.id).slice(-5):'—');
+ const x=$('#txl');if(x)x.innerHTML=ST.tx.length?ST.tx.slice(0,40).map(x=>`<div class="nt row"><div><b>${esc(x.n)}</b><div class="mut" style="font-size:11px">${x.at}</div></div><b style="color:${x.k==='out'?'var(--err)':'var(--ok)'}">${x.k==='out'?'−':'+'}${fmt(x.a)}</b></div>`).join(''):'<div class="mut">Hali amal yo‘q.</div>'}
+function sub(h){$('#pmain').style.display='none';$('#psub').style.display='block';$('#psub').innerHTML='<button class="back" onclick="subx()">Orqaga</button>'+h;$('#psub').scrollIntoView()}
+function subx(){$('#psub').style.display='none';$('#pmain').style.display='block'}
+function tarix(){sub('<h2 class="t">Tarix</h2><div class="card" id="txl"></div>');balUI()}
+function openTg(url){tg&&tg.openTelegramLink?tg.openTelegramLink(url):window.open(url,'_blank')}
+function support(){openTg('https://t.me/'+CONFIG.ADMIN_USERNAME.slice(1))}
+const TXT={terms:['Foydalanish shartlari','1. Turnirda faqat o‘z PUBG akkauntingiz bilan qatnashing.\n2. Cheat va soxta chek yuborish akkaunt bloklanishiga olib keladi.\n3. VIP slot to‘lovi qaytarilmaydi.\n4. Turnir qoidalarini admin belgilaydi va o‘zgartirishi mumkin.'],priv:['Maxfiylik siyosati','Biz Telegram ID, username va PUBG ma’lumotlaringizni faqat turnir va to‘lovlarni yuritish uchun saqlaymiz. Ma’lumotlar uchinchi shaxslarga berilmaydi.']};
+function txt(k){sheet(`<h3>${TXT[k][0]}</h3><div class="mut" style="margin:10px 0;white-space:pre-line">${TXT[k][1]}</div><button class="btn ghost" onclick="closeS()">YOPISH</button>`)}
+function sozl(){const R=(ic,t,d,fn)=>`<button class="st" onclick="${fn}"><span class="si">${sv(IC[ic])}</span><span class="sx"><b>${t}</b><em>${d}</em></span>${sv(IC.chev)}</button>`;
+ sub(`<h2 class="t">Sozlamalar</h2><div class="card stl"><div class="st"><span class="si">${sv(ST.theme==='light'?IC.sun:IC.moon)}</span><span class="sx"><b>Fon rejimi</b><em>${ST.theme==='light'?'Oq fon':'Qora fon'}</em></span><span class="seg"><button class="${ST.theme==='light'?'':'on'}" onclick="setTheme('dark')">Qora</button><button class="${ST.theme==='light'?'on':''}" onclick="setTheme('light')">Oq</button></span></div>
+ <div class="st"><span class="si">${sv(ST.mute?IC.off:IC.on)}</span><span class="sx"><b>Ovoz</b><em>Tovush effektlari</em></span><button class="sw ${ST.mute?'':'on'}" onclick="togSnd();sozl()" aria-label="Ovoz"></button></div>
+ <div class="st"><span class="si">${sv(IC.on)}</span><span class="sx"><b>Ovoz balandligi</b><em>Tovush kuchi</em></span><span class="seg">${['Past','O‘rta','Baland'].map((x,i)=>`<button class="${(ST.vol==null?1:ST.vol)===i?'on':''}" onclick="setVol(${i})">${x}</button>`).join('')}</span></div>
+ ${R('head','Qo‘llab-quvvatlash','Biz bilan bog‘laning','support()')}${R('mega','Yangiliklar','Yangiliklar kanalimiz',"CONFIG.NEWS?openTg(CONFIG.NEWS):toast('Kanal havolasi hali kiritilmagan.')")}${R('doc','Foydalanish shartlari','Qoidalar bilan tanishish',"txt('terms')")}${R('shield','Maxfiylik siyosati','Ma’lumotlar xavfsizligi',"txt('priv')")}${R('out','Chiqish','Ilovani yopish','quit()')}</div>`)}
+function kuponSheet(){sheet(`<h3>Kupon</h3><input id="cp" placeholder="Kupon kodi"><button class="btn" onclick="coupon()">FAOLLASHTIRISH</button><button class="btn ghost" onclick="closeS()">YOPISH</button>`)}
+function promoForm(){const p=ST.promo||{};sheet(`<h3>Konkurs banneri</h3><input id="pt" placeholder="Sarlavha" value="${esc(p.t||'')}"><input id="pm" placeholder="Mukofot" value="${esc(p.m||'')}"><button class="btn" onclick="ST.promo={t:$('#pt').value.trim(),m:$('#pm').value.trim()};if(!ST.promo.t)ST.promo=null;save();if(SYNC)act('promo',ST.promo||{});closeS();promoUI()">SAQLASH</button><button class="btn ghost" onclick="ST.promo=null;save();if(SYNC)act('promo',{});closeS();promoUI()">O‘CHIRISH</button>`)}
+function promoUI(){const p=ST.promo;$('#promo').innerHTML=p?`<div class="pb"><div class="pk">KONKURS</div><b>${esc(p.t)}</b>${p.m?`<div class="mut" style="color:#ffd9de">Mukofot: <b>${esc(p.m)}</b></div>`:''}</div>`:''}
+const CONFIG={ADMIN_ID:7951717415,ADMIN_USERNAME:'@mirzhayev',CARD:'5614683513433615',CARD_HOLDER:'Mirzhayev Abdurahmon',API:'PASTE_APPS_SCRIPT_URL_HERE'}; // CARD va API admin tomonidan to'ldiriladi
+const SYNC=/^https:/.test(CONFIG.API)&&!!(tg&&tg.initData),LOCKED=/^https:/.test(CONFIG.API)&&!SYNC;
+if(u&&u.id===CONFIG.ADMIN_ID)$('#who').textContent+=' · ADMIN';
+let dAmt=0,dFile=null;
+const fmt=n=>n.toLocaleString('ru')+' UZS';
+function deposit(){dAmt=0;dFile=null;sheet(`<h3>BALANS TO'LDIRISH</h3><div class="chips" style="margin-top:10px" id="dc">${[10000,20000,50000].map(a=>`<button class="chip" data-a="${a}">${fmt(a)}</button>`).join('')}</div>
+ <input id="da" inputmode="numeric" placeholder="Boshqa summa (min 5 000 UZS)"><button class="btn" onclick="dNext()">TO'LOV QILISH</button><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button>`);
+ $('#dc').querySelectorAll('button').forEach(b=>b.onclick=()=>{$('#da').value=b.dataset.a;$('#dc').querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));b.classList.add('on')})}
+function dNext(){const v=parseInt(($('#da').value||'').replace(/\D/g,''),10);if(!v||v<5000)return toast('Summa kamida 5 000 UZS bo‘lishi kerak.');dAmt=v;dFile=null;
+ sheet(`<h3>KARTAGA O'TKAZING</h3><div class="card" style="margin-top:10px"><div class="mut">Aniq shu summani o'tkazing</div><div style="font-size:26px;font-weight:800">${fmt(v)}</div>
+ <div class="mut" style="margin-top:10px">Karta raqami</div><div style="font-size:20px;font-weight:800;letter-spacing:.06em">${CONFIG.CARD.replace(/(\d{4})(?=\d)/g,'$1 ')}</div><div class="mut">${CONFIG.CARD_HOLDER}</div>
+ <button class="btn ghost" onclick="navigator.clipboard&&navigator.clipboard.writeText('${CONFIG.CARD}');toast('Karta raqami nusxalandi.')">NUSXALASH</button></div>
+ <div class="mut">To'lov qilgach, chek rasmini tanlang:</div><label class="up" for="df"><span id="upt">Rasm tanlash</span></label><input id="df" type="file" accept="image/*" hidden onchange="dPick(this)"><img id="dp" class="pv" alt="">
+ <button class="btn" id="dsend" disabled onclick="warn('dSend')">TO'LOV QILDIM — CHEKNI YUBORISH</button><button class="btn ghost" onclick="warn('dTg')">CHEKNI ADMINGA TELEGRAMDA YUBORISH</button>`)}
+function warn(fn){sheet(`<div style="text-align:center"><div style="font-size:40px">⚠️</div><h3 style="margin:6px 0 10px">Balansni to‘ldirish</h3><div>Ariza <b>haqiqiy to‘lov cheki</b> bilan yuborilishi kerak.</div><div style="color:var(--warn);margin:10px 0">To‘lov qilmasdan yoki soxta chek bilan yuborilgan ariza <b>hisobingiz bloklanishiga</b> olib keladi.</div><div class="mut">To‘lovni haqiqatan amalga oshirgan bo‘lsangiz, davom eting.</div></div><div class="two" style="margin-top:6px"><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button><button class="btn" onclick="closeS();${fn}()">TUSHUNDIM, YUBORISH</button></div>`)}
+function dPick(el){dFile=el.files&&el.files[0];if(!dFile)return;$('#upt').textContent=dFile.name;const p=$('#dp');p.src=URL.createObjectURL(dFile);p.style.display='block';$('#dsend').disabled=false}
+function dTg(){const url='https://t.me/'+CONFIG.ADMIN_USERNAME.slice(1)+'?text='+encodeURIComponent('To‘lov: '+fmt(dAmt)+'\nTelegram ID: '+(u?u.id:'—')+'\nChekni rasm qilib yuboraman.');tg&&tg.openTelegramLink?tg.openTelegramLink(url):window.open(url,'_blank')}
+async function dSend(){if(!dFile||!dAmt)return;if(!SYNC)return toast('Ilova serverga ulanmagan. Chekni admin ga Telegramda yuboring.');const img=await shrink(dFile);if(await act('deposit',{amt:dAmt,img},'So‘rov yuborildi. Admin tekshirmoqda.'))closeS()}
+function shrink(f){return new Promise(res=>{const im=new Image();im.onload=()=>{const k=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.7).split(',')[1])};im.src=URL.createObjectURL(f)})}
+// ===== OVOZ TIZIMI =====
+// Qoidalar: kirishda ovoz YO'Q; audio faqat birinchi bosishdan keyin ochiladi; hodisalar nomi bilan chaqiriladi: sfx('tap'|'nav'|'ok'|'err'|'note'|'on'|'off')
+const SFX=(()=>{let ac=null;
+ const vol=()=>[.5,1,1.7][ST.vol==null?1:ST.vol];
+ const ctx=()=>{try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();return ac}catch(e){return null}};
+ const n=(f,d,o={})=>{const c=ctx();if(!c)return;const t=c.currentTime+(o.at||0),os=c.createOscillator(),g=c.createGain();os.type=o.ty||'sine';os.frequency.setValueAtTime(f,t);if(o.to)os.frequency.exponentialRampToValueAtTime(o.to,t+d);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime((o.v||.05)*vol(),t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+d);os.connect(g).connect(c.destination);os.start(t);os.stop(t+d+.03)};
+ const S={tap:()=>n(520,.05,{ty:'triangle',v:.022}),nav:()=>{n(440,.06,{ty:'triangle',v:.03});n(660,.09,{at:.05,ty:'triangle',v:.03})},
+  ok:()=>{n(523,.12,{v:.05});n(659,.12,{at:.09,v:.05});n(784,.22,{at:.18,v:.05})},err:()=>{n(220,.16,{ty:'square',v:.022});n(165,.24,{at:.12,ty:'square',v:.022})},
+  note:()=>{n(880,.1,{v:.05});n(1175,.18,{at:.1,v:.05})},on:()=>n(600,.08,{v:.04}),off:()=>n(300,.1,{v:.04})};
+ return{play:k=>{if(!ST.mute&&S[k])S[k]()},unlock:ctx}})();
+const HP={tap:['i','light'],nav:['i','light'],ok:['n','success'],err:['n','error'],note:['n','warning']};
+function hap(k){try{const h=tg&&tg.HapticFeedback,m=HP[k];if(h&&m)m[0]==='i'?h.impactOccurred(m[1]):h.notificationOccurred(m[1])}catch(e){}}
+function sfx(k){SFX.play(k);hap(k)}
+const sNote=()=>sfx('note');
+function sndIcon(){$('#snd').innerHTML=sv(ST.mute?IC.off:IC.on)}
+function togSnd(){ST.mute=!ST.mute;save();sndIcon();SFX.unlock();sfx(ST.mute?'':'on')}
+function setVol(i){ST.vol=i;save();SFX.unlock();sfx('ok');sozl()}
+sndIcon();
+document.addEventListener('pointerdown',e=>{SFX.unlock();const b=e.target.closest('button,.tile,.tc');if(!b||b.disabled)return;sfx(b.closest('nav')?'nav':'tap')},true);
+setTimeout(()=>{const i=$('#intro');i&&i.remove()},1200);
+// xabarlar
+ST.notes=ST.notes||[];
+function addNote(t,m){ST.notes.unshift({t,m,at:new Date().toLocaleString('uz'),r:0});save();dot();sNote();toast(t,'-')}
+function dot(){$('#dot').style.display=ST.notes.some(n=>!n.r)?'block':'none'}
+function showNotes(){sheet(`<h3>XABARLAR</h3>${ST.notes.length?ST.notes.map(n=>`<div class="nt"><b>${n.t}</b><div class="mut">${n.m}</div><div class="mut" style="font-size:11px">${n.at}</div></div>`).join(''):EMPTY}<button class="btn ghost" onclick="closeS()">YOPISH</button>`);ST.notes.forEach(n=>n.r=1);save();dot();if(SYNC)call('read').catch(()=>{})}
+if(!ST.welcome){ST.welcome=1;ST.notes.push({t:'NEXAR ga xush kelibsiz',m:'Turnirlarga yoziling va nishonlar to‘plang.',at:new Date().toLocaleString('uz'),r:0});save()}dot();
+// nishonlar
+const BADGES=[['🏆','CHAMPION','Turnir g‘olibi'],['⚡','ELITE','Elite darajadagi o‘yinchi'],['🔥','MVP','Eng yaxshi o‘yinchi'],['🎯','SNIPER','Aniqligi yuqori o‘yinchi'],['🛡️','VETERAN','Ko‘p turnirlarda qatnashgan'],['💎','LEGEND','Maxsus yuqori daraja'],['👑','TOP PLAYER','Reytingdagi kuchli o‘yinchi'],['🚀','RISING STAR','Tez rivojlanayotgan o‘yinchi']];
+ST.badges=ST.badges||[]; // serverdan keladi; admin beradi
+const badgesUI=()=>{$('#bgs').innerHTML=BADGES.map(b=>`<div class="bdg ${(ST.badges||[]).includes(b[1])?'on':''}"><div class="e">${b[0]}</div><b>${b[1]}</b><span>${b[2]}</span></div>`).join('')};badgesUI();
+// admin
+const getT=id=>T.find(t=>t.id===id);
+function refresh(){if($('#tdet').style.display==='block'&&cur&&T.includes(cur))det();else if(tcat&&$('#tlist').style.display==='block')list();else tHub()}
+function quit(){const go=()=>{if(tg&&tg.close)tg.close();else toast('Telegram ichida ilova yopiladi.')};if(tg&&tg.showConfirm)tg.showConfirm('Ilovadan chiqasizmi?',ok=>ok&&go());else if(confirm('Ilovadan chiqasizmi?'))go()}
+function pickT(fn,m){const L=T.filter(t=>!m||(m===1?isTDM(t):!isTDM(t)));sheet(`<h3>Turnirni tanlang</h3>${L.length?L.map(t=>`<button class="btn ghost" onclick="${fn}(${t.id})">${esc(t.n)}</button>`).join(''):EMPTY}<button class="btn ghost" onclick="closeS()">YOPISH</button>`)}
+function admBox(t,B){const d=isTDM(t);return `<div class="card"><h3>ADMIN</h3><div class="mut">Turnirni boshqarish (shu qurilmada saqlanadi).</div><div class="two2"><button class="btn ghost" onclick="aAdd(${t.id})">O‘YINCHI QO‘SHISH</button><button class="btn ghost" onclick="aRem(${t.id})">O‘YINCHINI CHIQARISH</button><button class="btn ghost" onclick="aSt(${t.id})">HOLATNI O‘ZGARTIRISH</button>${d?`<button class="btn ghost" onclick="aVip(${t.id})">VIP NARXINI O‘ZGARTIRISH</button><button class="btn ghost" onclick="mkBr(cur,${!!B});det()">${B?'SETKANI ARALASHTIRISH':'SETKANI YARATISH'}</button>`:''}<button class="btn ghost" style="color:var(--err)" onclick="aDel(${t.id})">TURNIRNI O‘CHIRISH</button></div></div>`}
+function aSt(id){sheet(`<h3>Turnir holati</h3>${STS.map(x=>`<button class="btn ghost" onclick="setSt(${id},'${x}')">${x}</button>`).join('')}<button class="btn ghost" onclick="closeS()">YOPISH</button>`)}
+function setSt(id,x){getT(id).st=x;saveT();if(SYNC)pushT(getT(id),{st:x});closeS();refresh();toast('Holat: '+x)}
+function aDel(id){const t=getT(id);if(!confirm('«'+t.n+'» o‘chirilsinmi?'))return;T.splice(T.indexOf(t),1);delete ST.reg[id];delete ST.br[id];delete ST.paid[id];saveT();if(SYNC)act('tdel',{tid:id});closeS();if($('#tdet').style.display==='block')back();refresh();toast('Turnir o‘chirildi.')}
+function aVip(id){sheet(`<h3>VIP slot narxi</h3><input id="av" inputmode="numeric" placeholder="UZS" value="${getT(id).vipFee||0}"><button class="btn" onclick="const v=parseInt($('#av').value,10);if(!(v>=0))return toast('Narxni kiriting.');getT(${id}).vipFee=v;saveT();if(SYNC)pushT(getT(${id}),{vipFee:v});closeS();refresh();toast('VIP narxi yangilandi.')">SAQLASH</button><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button>`)}
+function aAdd(id){sheet(`<h3>O‘yinchi qo‘shish</h3><input id="an" placeholder="PUBG NIKNEYM"><button class="btn" onclick="addP(${id},$('#an').value.trim())">QO‘SHISH</button><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button>`)}
+function addP(id,n){const t=getT(id);if(n.length<2)return toast('NIKNEYM kiriting.');if(SYNC){closeS();return act('padd',{tid:id,name:n,slot:(pick&&cur===t)?pick:null},n+' qo‘shildi.')}
+ if(t.players){if(t.players.includes(n))return toast('Bu o‘yinchi allaqachon bor.');t.players.push(n)}
+ else{const ks=[...Array.from({length:t.cap},(_,i)=>'S'+(i+1)),...Array.from({length:t.vcap},(_,i)=>'V'+(i+1))],k=(pick&&cur===t&&!t.reg[pick]&&ST.reg[t.id]!==pick&&ks.includes(pick))?pick:ks.find(x=>!t.reg[x]&&ST.reg[t.id]!==x);if(!k)return toast('Bo‘sh slot qolmagan.');t.reg[k]=n}
+ delete ST.br[id];saveT();closeS();pick=null;refresh();toast(n+' qo‘shildi.')}
+function plRows(t){return t.players?t.players.map((n,i)=>({key:i,n})):Object.entries(t.reg).map(([k,n])=>({key:"'"+k+"'",n,l:lab(k)}))}
+function aRem(id){const t=getT(id),R=plRows(t);sheet(`<h3>O‘yinchini chiqarish</h3>${R.length?R.map(r=>`<div class="nt row"><b>${esc(r.n)}${r.l?' · '+r.l:''}</b><button class="chip" onclick="remP(${id},${r.key})">CHIQARISH</button></div>`).join(''):EMPTY}<button class="btn ghost" onclick="closeS()">YOPISH</button>`)}
+function remP(id,key){const t=getT(id);if(SYNC){closeS();return act('prem',{tid:id,key},'O‘yinchi chiqarildi.')}if(t.players)t.players.splice(key,1);else delete t.reg[key];delete ST.br[id];saveT();closeS();refresh();toast('O‘yinchi chiqarildi.')}
+function aSlot(k){sheet(`<h3>${lab(k)} slot</h3><div class="mut">${esc(cur.reg[k]||'')}</div><button class="btn" onclick="remP(cur.id,'${k}')">O‘YINCHINI CHIQARISH</button><button class="btn ghost" onclick="closeS()">YOPISH</button>`)}
+function aRnd(id){const t=getT(id);cur=t;mkBr(t,true);closeS();refresh();toast('Setka aralashtirildi.')}
+function aJur(id){const t=getT(id);closeS();document.querySelector('nav button[data-t=turnir]').click();tOpen(CATS.findIndex(c=>c[0]===t.c));openT(id)}
+function createT(){sheet(`<h3>Turnir yaratish</h3><input id="cn" placeholder="Turnir nomi"><div class="chips" id="cc" style="margin-top:10px">${CATS.map((c,i)=>`<button class="chip ${i?'':'on'}" data-v="${c[0]}">${c[0]}</button>`).join('')}</div><input id="cd" placeholder="Sana (masalan 12-oktyabr)"><input id="ct" placeholder="Vaqt (20:00)"><input id="cy" placeholder="Yutuq (masalan 500 000 UZS)"><input id="cv" inputmode="numeric" placeholder="VIP narxi, UZS (faqat TDM)"><button class="btn" onclick="mkT()">YARATISH</button><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button>`);
+ $('#cc').querySelectorAll('button').forEach(b=>b.onclick=()=>{$('#cc').querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on')})}
+function mkT(){const n=$('#cn').value.trim(),d=$('#cd').value.trim(),tm=$('#ct').value.trim(),p=$('#cy').value.trim(),c=$('#cc .on').dataset.v;
+ if(n.length<3||!d||!/^\d{1,2}:\d{2}$/.test(tm)||!p)return toast('Nom, sana, vaqt (20:00) va yutuqni to‘ldiring.');
+ const t={id:Date.now(),n,c,d,t:tm,dl:'—',p,st:'Qabul ochiq',rules:''};
+ if(c==='TDM TURNIR'){Object.assign(t,{cap:10,vcap:4,vipFee:parseInt($('#cv').value,10)||0,reg:{}})}else t.players=[];
+ if(SYNC){closeS();return act('tnew',{t},'Turnir yaratildi.')}T.push(t);saveT();closeS();refresh();toast('Turnir yaratildi.')}
+function mkCoupon(){sheet(`<h3>Kupon yaratish</h3><input id="ck" placeholder="Kod (NEXAR10)"><input id="cv2" inputmode="numeric" placeholder="Qiymati (UZS)"><input id="cl" inputmode="numeric" placeholder="Foydalanish limiti"><button class="btn" onclick="saveC()">SAQLASH</button><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button>`)}
+function saveC(){const k=$('#ck').value.trim().toUpperCase(),v=parseInt($('#cv2').value,10),l=parseInt($('#cl').value,10);if(!/^[A-Z0-9]{3,20}$/.test(k)||!(v>0)||!(l>0))return toast('Kod, qiymat va limitni to‘g‘ri kiriting.');if(SYNC){closeS();return act('cnew',{k,v,l},'Kupon yaratildi.')}(ST.cdraft=ST.cdraft||[]).push({k,v,l});save();closeS();toast('Kupon saqlandi. Hamma uchun faollashishi uchun server kerak.')}
+function sendB(){const x=$('#bt').value.trim();if(x.length<3)return toast('E’lon matnini kiriting.');if(!SYNC)return toast('Server ulanmagan.');act('bcast',{text:x},'E’lon yuborildi.').then(ok=>ok&&closeS())}
+function bcast(){sheet(`<h3>E’lon yuborish</h3><input id="bt" placeholder="E’lon matni"><button class="btn" onclick="sendB()">YUBORISH</button><button class="btn ghost" onclick="closeS()">BEKOR QILISH</button>`)}
+if(isAdm()){const R=[['Turnir yaratish','createT()',1],['Turnir holatini o‘zgartirish','pickT(\'aSt\')',1],['Turnirni o‘chirish','pickT(\'aDel\')',1],['O‘yinchi qo‘shish','pickT(\'aAdd\')',1],['O‘yinchini chiqarish','pickT(\'aRem\')',1],['VIP narxini o‘zgartirish','pickT(\'aVip\',1)',1],['Setkani aralashtirish (TDM)','pickT(\'aRnd\',1)',1],['Jurnal va g‘olib (KATTA/WOW)','pickT(\'aJur\',2)',1],['Kupon yaratish','mkCoupon()',SYNC?1:0],['E’lon yuborish','bcast()',SYNC?1:0],['Konkurs banneri','promoForm()',1],['To‘lov so‘rovlari','deps()',SYNC?1:0],['Nishon berish','badgeForm()',SYNC?1:0]];
+ $('#adm').innerHTML=`<div class="card"><h3>ADMIN PANEL</h3>${R.map((r,i)=>`<button class="arow" onclick="${r[1]}"><span>${i+1}. ${r[0]}</span><i class="${r[2]?'ok':'sv'}">${r[2]?'ISHLAYDI':'SERVER'}</i></button>`).join('')}</div>`}
+// ===== SERVER (Google Apps Script) =====
+let busy=false,READY=false;
+async function call(a,p){const r=await fetch(CONFIG.API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({a,d:tg.initData,p:p||{}})});return r.json()}
+async function act(a,p,ok){if(busy){if(a!=='state')toast('Kuting...');return false}busy=true;try{const r=await call(a,p);if(!r.ok){toast(r.e||'Xatolik yuz berdi.','err');return false}if(r.s)applyState(r.s);if(ok){sfx('ok');toast(ok,'-')}return true}catch(e){toast('Server bilan aloqa yo‘q. Qayta urining.');return false}finally{busy=false}}
+const pushT=(t,f)=>act('tupd',{tid:t.id,f});
+function applyState(s){const id=cur&&cur.id,nb=(ST.notes||[]).filter(n=>!n.r).length,m=s.me;T.length=0;T.push(...s.T);ST.pubg=m.pubg||null;ST.reg=m.reg||{};ST.paid=m.paid||{};ST.bal=m.bal||0;ST.tx=m.tx||[];ST.notes=m.notes||[];ST.badges=m.badges||[];ST.promo=s.promo||null;ST.deps=s.deps||[];ST.br={};ST.jr={};ST.jc={};
+ T.forEach(t=>{if(t.br)ST.br[t.id]=t.br;if(t.jr)ST.jr[t.id]=t.jr;if(t.jc)ST.jc[t.id]=t.jc});cur=id?(T.find(t=>t.id===id)||null):null;
+ balUI();dot();promoUI();showPubg();badgesUI();refresh();if(READY&&ST.notes.filter(n=>!n.r).length>nb)sNote()}
+addEventListener('error',e=>{let d=document.getElementById('err');if(!d){d=document.createElement('div');d.id='err';document.body.appendChild(d)}d.textContent='Xato: '+e.message});
+if(LOCKED){document.body.innerHTML='<div class="lock"><b>Telegram orqali oching</b><span>Bu ilova faqat @neexarbot ichida ishlaydi.</span></div>'}
+else if(SYNC){T.length=0;ST.reg={};ST.br={};ST.jr={};ST.jc={};ST.paid={};ST.tx=[];ST.bal=0;ST.notes=[];ST.badges=[];
+ document.body.insertAdjacentHTML('beforeend','<div id="ld" class="lock"><b>Yuklanmoqda…</b></div>');showPubg();tHub();mHub();
+ act('state').then(ok=>{READY=true;const l=$('#ld');if(ok)l&&l.remove();else if(l)l.innerHTML='<b>Server bilan aloqa yo‘q</b><button class="btn" onclick="location.reload()">QAYTA URINISH</button>'});
+ setInterval(()=>{if(!document.hidden&&!$('#sh').classList.contains('on'))act('state')},15000)}
+else{showPubg();balUI();promoUI();tHub();mHub()}
+function deps(){const L=ST.deps||[];sheet(`<h3>To‘lov so‘rovlari</h3><div class="mut">Chek rasmi sizga bot chatida yuborilgan.</div>${L.length?L.map(d=>`<div class="card" style="margin-top:10px"><b>#${d.id} · ${esc(d.name)}</b><div class="mut">${fmt(d.amt)} · ${d.at}</div><div class="two"><button class="btn" onclick="depAct('dok',${d.id})">TASDIQLASH</button><button class="btn ghost" onclick="depAct('dno',${d.id})">RAD ETISH</button></div></div>`).join(''):EMPTY}<button class="btn ghost" onclick="closeS()">YOPISH</button>`)}
+async function depAct(a,id){if(await act(a,{id},a==='dok'?'To‘lov tasdiqlandi.':'So‘rov rad etildi.'))deps()}
+function badgeForm(){sheet(`<h3>Nishon berish</h3><input id="bu" inputmode="numeric" placeholder="Foydalanuvchi Telegram ID"><div class="chips" id="bc" style="margin-top:10px;flex-wrap:wrap">${BADGES.map((b,i)=>`<button class="chip ${i?'':'on'}" data-v="${b[1]}">${b[0]} ${b[1]}</button>`).join('')}</div><button class="btn" onclick="giveB()">BERISH</button><button class="btn ghost" onclick="closeS()">YOPISH</button>`);$('#bc').querySelectorAll('button').forEach(b=>b.onclick=()=>{$('#bc').querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on')})}
+async function giveB(){const uid=parseInt($('#bu').value,10);if(!uid)return toast('Telegram ID kiriting.');if(await act('badge',{uid,b:$('#bc .on').dataset.v},'Nishon berildi.'))closeS()}
+
+</script></body></html>
